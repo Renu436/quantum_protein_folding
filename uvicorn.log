@@ -1,0 +1,26 @@
+INFO:     Started server process [14781]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:51788 - "GET /health HTTP/1.1" 200 OK
+ERROR:main:Quantum routine failed
+Traceback (most recent call last):
+  File "/Users/renu/Desktop/quantum_protein_folding/quantum/qaoa_advanced.py", line 13, in run_qaoa
+    sampler_cls = importlib.import_module('qiskit.primitives').Sampler
+AttributeError: module 'qiskit.primitives' has no attribute 'Sampler'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/renu/Desktop/quantum_protein_folding/main.py", line 79, in simulate
+    result, t_quantum = measure(run_qaoa, H)
+  File "/Users/renu/Desktop/quantum_protein_folding/utils/timer.py", line 5, in measure
+    result = func(*args)
+  File "/Users/renu/Desktop/quantum_protein_folding/quantum/qaoa_advanced.py", line 17, in run_qaoa
+    raise RuntimeError(
+RuntimeError: qiskit is required to run QAOA. Install it (e.g. `pip install qiskit`)
+INFO:     127.0.0.1:51789 - "POST /simulate HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14781]
